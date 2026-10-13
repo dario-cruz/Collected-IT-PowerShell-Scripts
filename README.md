@@ -8,6 +8,13 @@ A curated repository of enterprise-grade PowerShell scripts, automation tools, d
 
 ```
 Collected-IT-PowerShell-Scripts/
+├── Backups/
+│   └── IT-Scripts/
+│       ├── JS/
+│       ├── Teams Log Collection - Old Interations/
+│       ├── Ticket Resolution Generator/
+│       └── [Original IT Scripts directory included in full as backup]
+│
 ├── Hardware-Auditing/
 │   └── USB-Device-Whitelist/
 │       ├── USB Whitelist - Obtain USB Device ID vFinalv2.ps1
@@ -172,6 +179,15 @@ Collected-IT-PowerShell-Scripts/
   * Automatically bundles relevant logs into timestamped ZIP archives with manifest logging when calls or directory changes are detected.
   * `Test-TeamsDetection.ps1` diagnoses the underlying file system events and verifies `FileSystemWatcher` support.
 * **Legacy Versions:** Contains background collection prototypes, enhanced scripts, and v1–v5 development builds in `Legacy-Versions/`.
+
+---
+
+### 7. Backups & Historical Workspace (`Backups/`)
+
+#### Original Workspace Backup (`Backups/IT-Scripts/`)
+* **Path:** `Backups/IT-Scripts/`
+* **Note:** The entirety of the original `IT Scripts` working directory has been included in full as a backup.
+* **Purpose:** Preserves the original file tree, raw experimental scripts, historical iterations, test run output CSVs, and ancillary assets byte-for-byte in their original unorganized state for historical reference, provenance, and disaster recovery.
 
 ---
 

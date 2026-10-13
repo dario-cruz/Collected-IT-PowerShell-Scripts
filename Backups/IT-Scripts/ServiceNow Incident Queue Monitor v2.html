@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServiceNow Queue Monitor</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+#header {
+    height: 50px;
+    background: #003366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+#title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+label {
+    font-size: 13px;
+}
+
+select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: none;
+    min-width: 120px;
+}
+
+#timer {
+    font-weight: bold;
+    min-width: 130px;
+}
+
+#snFrame {
+    width: 100%;
+    height: calc(100vh - 50px);
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+
+    <div id="title">
+        ServiceNow Incident Queue Monitor
+    </div>
+
+    <div class="controls">
+
+        <label for="queueSelect">Queue:</label>
+
+        <select id="queueSelect">
+            <option value="AMAS">AMAS</option>
+            <option value="EMEA">EMEA</option>
+            <option value="APAC">APAC</option>
+            <option value="ITSDL2">IT SD L2</option>
+        </select>
+
+        <label for="refreshInterval">Refresh:</label>
+
+        <select id="refreshInterval">
+            <option value="15">15 sec</option>
+            <option value="30" selected>30 sec</option>
+            <option value="60">60 sec</option>
+            <option value="120">2 min</option>
+            <option value="300">5 min</option>
+        </select>
+
+        <span id="timer">Refreshing in 30s</span>
+
+    </div>
+
+</div>
+
+<iframe id="snFrame"></iframe>
+
+<script>
+
+// Queue URLs
+const QUEUES = {
+
+    AMAS:
+        "https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253Dd625dccec0a8016700a222a0f7900d06%255Eassigned_toISEMPTY%255Ecaller_id.location.u_regionINAMAS",
+
+    EMEA:
+        "https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253Dd625dccec0a8016700a222a0f7900d06%255Eassigned_toISEMPTY%255Ecaller_id.location.u_regionINEMEA%255EORcaller_id.locationISEMPTY%255EORcaller_id.location%253Dc5a1c81f4f003e008151df601310c75b",
+
+    APAC:
+        "https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253Dd625dccec0a8016700a222a0f7900d06%255Eassigned_toISEMPTY%255Ecaller_id.location.u_regionINAPAC",
+
+    ITSDL2:
+        "https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253D5c91346adbb5f15090a1c14c2296195c%255Eassigned_toISEMPTY%26sysparm_first_row%3D1%26sysparm_view%3Ddefault"
+};
+
+const frame = document.getElementById("snFrame");
+const timerDisplay = document.getElementById("timer");
+const queueSelect = document.getElementById("queueSelect");
+const refreshSelect = document.getElementById("refreshInterval");
+
+let refreshInterval = parseInt(refreshSelect.value);
+let remaining = refreshInterval;
+
+// Load queue
+function loadQueue() {
+
+    frame.src = QUEUES[queueSelect.value];
+
+    remaining = refreshInterval;
+
+    timerDisplay.textContent =
+        `Refreshing in ${remaining}s`;
+}
+
+// Refresh iframe
+function refreshFrame() {
+
+    const currentQueue = queueSelect.value;
+
+    // Force iframe recreation
+    frame.src = "about:blank";
+
+    setTimeout(() => {
+
+        frame.src = QUEUES[currentQueue];
+
+    }, 500);
+
+    remaining = refreshInterval;
+
+    timerDisplay.textContent =
+        `Refreshing in ${remaining}s`;
+}
+
+// Countdown
+setInterval(() => {
+
+    remaining--;
+
+    timerDisplay.textContent =
+        `Refreshing in ${remaining}s`;
+
+    if (remaining <= 0) {
+        refreshFrame();
+    }
+
+}, 1000);
+
+// Queue selector
+queueSelect.addEventListener("change", () => {
+
+    loadQueue();
+
+});
+
+// Refresh interval selector
+refreshSelect.addEventListener("change", () => {
+
+    refreshInterval =
+        parseInt(refreshSelect.value);
+
+    remaining = refreshInterval;
+
+    timerDisplay.textContent =
+        `Refreshing in ${remaining}s`;
+});
+
+// Initial load
+loadQueue();
+
+</script>
+
+</body>
+</html>

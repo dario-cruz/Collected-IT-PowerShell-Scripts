@@ -1,0 +1,130 @@
+[CargoLink Request]
+Hello {UserName},
+
+I have created the requested CargoLink. Please find the link and access pin below:
+
+CargoLink: {CargoLink}
+Access Pin: {AccessPin}
+
+Your CargoLink will be active for {TimeDuration}.
+
+If you have any issues using the created CargoLink please reach out to me. 
+
+Best regards, 
+
+{TechnicianName}
+
+[Password Reset]
+Hello {UserName},
+
+Your password has been reset successfully. Please try signing in again using your updated credentials.
+
+If you continue to experience issues, please let us know.
+
+Best,
+{TechnicianName}
+
+[Information Barrier Removal - Presteps]
+Hello {UserName},
+
+Thank you for submitting your information barrier request to the IT department. 
+
+Before de-restriction & removal of the {IBFolderName} information barrier folder, any files or folders that needed to be retained should have been moved to a separate location such as your OneDrive or Team Sharepoint. If you need assistance with this, please let me know.
+
+Best regards,
+
+{TechnicianName}
+
+[Information Barrier Removal - Resolution]
+Hello {UserName},
+
+I have completed the removal of the requested information barrier {BarrierName}. Thank you for confirming that you have removed all needed files and folders. 
+
+Let me know if you have any questions or concerns regarding the removed information barrier and if you need anything else IT related addressed. 
+
+Best regards, 
+
+{TechnicianName}
+
+[Information Barrier Creation - Prestep Notification]
+Hello {UserName}, 
+
+I am starting work on the requested information barrier, {BarrierName} and will keep you apprised of my progress thoughout the creation process. 
+
+Let me know if you have any questions or concerns. 
+
+Best regards, 
+
+{TechnicianName}
+
+[Information Barrier Creation - Resolution]
+Hello {UserName},
+
+I have completed the creation of the specified information barrier as per your request. The created information barrier can be accessed via the url below:
+
+{IBFolderURL}
+
+Let me know if you need anything else IT related addressed.
+
+Best regards, 
+
+{TechnicianName}
+
+[Software Install]
+Hello {UserName},
+
+I have completed the installation of your requested software, {SoftwareName}.
+
+The software should be present and useable on your system at the time of this writing. 
+
+Please let me know if you have any issues with the installed software or if you need anything else IT related addressed.
+
+Best regards,
+{TechnicianName}
+
+[Laptop Replacement - Resolution]
+Hello {UserName},
+
+It was a pleasure to assist you today with your laptop uupgrade. I was able to ensure that all of your needed applications, office plugins, and data were transferred over to the new computer successfully.
+
+Let me know if you have any issues with the new hardware or if you need anything else IT related addressed. 
+
+Best regards,
+
+{TechnicianName}
+
+[Download Request - Resolution]
+Hello {RequesterName}, 
+
+I have completed the download request and uploaded the needed data room files to our PG systesm. I have shared the file with you via OneDrive. You should have an email in your inbox stating as such. 
+
+I have also included a direct download link to the file below, should you need it: 
+{InternalDataRoomLink}
+
+Let me know if you have any issues accessing/downloading the files from the link above. 
+
+Best regards, 
+
+{TechnicianName}
+
+[Loaner Laptop]
+Hello {RequesterName},
+
+It was a pleasure to assist you today with your loaner laptop request. We were able to provide you with the computer {LaptopName}.
+
+Thank you for returning the laptop to the IT office and end of day. 
+
+Best regards, 
+
+{TechnicianName}
+
+[Generic Ticket Resolution (For those very specific items)]
+Hello {RequesterName}, 
+
+I was a please to assist you with your {DetailsOfIssue}. I was able to {WhatYouDid}. 
+
+Let me know if you have further issues with this or anything else IT related. 
+
+Best regards, 
+
+{TechnicianName}

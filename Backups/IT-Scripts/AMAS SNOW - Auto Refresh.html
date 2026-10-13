@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiceNow Auto Refresh Dashboard</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Segoe UI, Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        #header {
+            height: 40px;
+            background: #003366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        #timer {
+            font-weight: bold;
+        }
+
+        #snFrame {
+            width: 100%;
+            height: calc(100vh - 40px);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <span>ServiceNow Incident Queue Monitor</span>
+        <span id="timer">Refreshing in 30s</span>
+    </div>
+
+    <iframe
+        id="snFrame"
+        src="https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253Dd625dccec0a8016700a222a0f7900d06%255Eassigned_toISEMPTY%255Ecaller_id.location.u_regionINAMAS">
+    </iframe>
+
+    <script>
+        const REFRESH_INTERVAL = 30;
+        const frame = document.getElementById('snFrame');
+        const timer = document.getElementById('timer');
+
+        let remaining = REFRESH_INTERVAL;
+
+        function refreshFrame() {
+            const currentUrl = frame.src.split('?refresh=')[0];
+
+            frame.src = currentUrl +
+                (currentUrl.includes('?') ? '&' : '?') +
+                'refresh=' + new Date().getTime();
+
+            remaining = REFRESH_INTERVAL;
+        }
+
+        setInterval(() => {
+            remaining--;
+            timer.textContent = `Refreshing in ${remaining}s`;
+
+            if (remaining <= 0) {
+                refreshFrame();
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
