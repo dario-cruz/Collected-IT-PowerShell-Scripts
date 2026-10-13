@@ -1,4 +1,4 @@
-#requires -version 5.1
+﻿#requires -version 5.1
 <#
     GUI - AutoRefresh v4.ps1
 
@@ -23,7 +23,7 @@ Add-Type -AssemblyName System.Drawing
 # Default Settings
 # ------------------------------------------------------------
 
-$DefaultUrl = "https://itservice.partnersgroup.com/now/nav/ui/classic/params/target/incident_list.do%3Fsysparm_query%3Dactive%253Dtrue%255EstateNOT%2520IN150%252C3%255Eassignment_group%253Dd625dccec0a8016700a222a0f7900d06%255Eassigned_toISEMPTY%255Ecaller_id.location.u_regionINAMAS"
+$DefaultUrl = "https://your-instance.service-now.com/now/nav/ui/classic/params/target/incident_list.do?sysparm_query=active=true"
 
 $ConfigPath = Join-Path $env:APPDATA "AutoRefreshGuiV4Config.json"
 $ProfileDir = Join-Path $env:LOCALAPPDATA "AutoRefreshEdgeProfile"

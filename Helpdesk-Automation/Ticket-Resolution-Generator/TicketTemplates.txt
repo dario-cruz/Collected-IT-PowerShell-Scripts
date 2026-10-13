@@ -1,4 +1,4 @@
-[CargoLink Request]
+﻿[CargoLink Request]
 Hello {UserName},
 
 I have created the requested CargoLink. Please find the link and access pin below:
@@ -96,7 +96,7 @@ Best regards,
 [Download Request - Resolution]
 Hello {RequesterName}, 
 
-I have completed the download request and uploaded the needed data room files to our PG systesm. I have shared the file with you via OneDrive. You should have an email in your inbox stating as such. 
+I have completed the download request and uploaded the needed data room files to our corporate systems. I have shared the file with you via OneDrive. You should have an email in your inbox stating as such. 
 
 I have also included a direct download link to the file below, should you need it: 
 {InternalDataRoomLink}
@@ -128,3 +128,4 @@ Let me know if you have further issues with this or anything else IT related.
 Best regards, 
 
 {TechnicianName}
+
